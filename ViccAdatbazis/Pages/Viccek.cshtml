@@ -1,0 +1,51 @@
+﻿@page
+@model ViccAdatbazis.Pages.ViccekModel
+
+@{
+    ViewData["Title"] = "Viccek";
+}
+
+<h1>Viccek</h1>
+
+<table class="table">
+    <form method="post" enctype="multipart/form-data">
+        <thead>
+            <tr>
+                <th>
+                        @Html.DisplayNameFor(model => model.Vicc[0].Tartalom)
+                </th>
+                <th>
+                        @Html.DisplayNameFor(model => model.Vicc[0].Feltolto)
+                </th>
+                <th>
+                        @Html.DisplayNameFor(model => model.Vicc[0].Tetszik)
+                </th>
+                <th>
+                        @Html.DisplayNameFor(model => model.Vicc[0].NemTetszik)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var item in Model.Vicc)
+                {
+                <tr>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Tartalom)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Feltolto)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Tetszik)
+                            <input type="submit" value="Tetszik" asp-for="ValtoztatottVicc"/>
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.NemTetszik)
+                    </td>
+
+                </tr>
+                }
+        </tbody>
+    </form>
+</table>
