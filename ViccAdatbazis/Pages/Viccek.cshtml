@@ -8,44 +8,43 @@
 <h1>Viccek</h1>
 
 <table class="table">
-    <form method="post" enctype="multipart/form-data">
-        <thead>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Tartalom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Feltolto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Tetszik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].NemTetszik)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Vicc)
+        {
             <tr>
-                <th>
-                        @Html.DisplayNameFor(model => model.Vicc[0].Tartalom)
-                </th>
-                <th>
-                        @Html.DisplayNameFor(model => model.Vicc[0].Feltolto)
-                </th>
-                <th>
-                        @Html.DisplayNameFor(model => model.Vicc[0].Tetszik)
-                </th>
-                <th>
-                        @Html.DisplayNameFor(model => model.Vicc[0].NemTetszik)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-                @foreach (var item in Model.Vicc)
-                {
-                <tr>
-                    <td>
-                            @Html.DisplayFor(modelItem => item.Tartalom)
-                    </td>
-                    <td>
-                            @Html.DisplayFor(modelItem => item.Feltolto)
-                    </td>
-                    <td>
-                            @Html.DisplayFor(modelItem => item.Tetszik)
-                            <input type="submit" value="Tetszik" asp-for="ValtoztatottVicc"/>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(modelItem => item.NemTetszik)
-                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tartalom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feltolto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tetszik)
+                    <button onclick="like(@item.Id)">Tetszik</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NemTetszik)
+                    <button onclick="dislike(@item.Id)">Tetszik</button>
+                </td>
 
-                </tr>
-                }
-        </tbody>
-    </form>
+            </tr>
+        }
+    </tbody>
 </table>
