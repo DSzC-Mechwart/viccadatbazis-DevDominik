@@ -36,12 +36,12 @@
                     @Html.DisplayFor(modelItem => item.Feltolto)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Tetszik)
+                    <span id="tetszikDb-@item.Id">@Html.DisplayFor(modelItem => item.Tetszik)</span>
                     <button onclick="like(@item.Id)">Tetszik</button>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NemTetszik)
-                    <button onclick="dislike(@item.Id)">Tetszik</button>
+                    <span id="nemtetszikDb-@item.Id">@Html.DisplayFor(modelItem => item.NemTetszik)</span>
+                    <button onclick="dislike(@item.Id)">Nem tetszik</button>
                 </td>
 
             </tr>

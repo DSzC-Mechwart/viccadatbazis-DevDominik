@@ -83,7 +83,11 @@ namespace ViccAdatbazis.Controllers
             vicc.Tetszik++;
             _context.Entry(vicc).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return Ok(JsonSerializer.Serialize("tbd : " + vicc.Tetszik));
+            var valasz = new
+            {
+                tdb = vicc.Tetszik
+            };
+            return Ok(JsonSerializer.Serialize(valasz));
         }
         [Route("dislike/{id}")]
         [HttpPatch("{id}")]
@@ -97,7 +101,11 @@ namespace ViccAdatbazis.Controllers
             vicc.NemTetszik++;
             _context.Entry(vicc).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return NoContent();
+            var valasz = new
+            {
+                tdb = vicc.NemTetszik
+            };
+            return Ok(JsonSerializer.Serialize(valasz));
         }
     }
 }

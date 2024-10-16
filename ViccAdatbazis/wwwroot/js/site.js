@@ -10,7 +10,8 @@ function like(id)
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
+            const obj = JSON.parse(this.responseText);
+            document.getElementById("tetszikDb-"+id).innerHTML = obj.tdb
         }
     });
 
@@ -26,8 +27,8 @@ function dislike(id) {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
-            document.getElementById("tetszikDb").innerHTML = 
+            const obj = JSON.parse(this.responseText);
+            document.getElementById("nemtetszikDb-" + id).innerHTML = obj.tdb
         }
     });
 
